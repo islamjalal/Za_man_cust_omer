@@ -227,7 +227,8 @@ class _SignUpState extends State<SignUp> {
                                           fillColor: const Color(0xffA99575),
                                         ),
                                         inputFormatters: [
-                                          WhitelistingTextInputFormatter(RegExp("[0-9]"))
+                                          WhitelistingTextInputFormatter(RegExp("[0-9]")),
+                                          LengthLimitingTextInputFormatter(11),
                                         ],
                                         obscureText: false,
                                         focusNode: mobileFocusNode,
@@ -240,9 +241,6 @@ class _SignUpState extends State<SignUp> {
                                         validator: (value) {
                                           if (value.isEmpty) {
                                             return 'Enter your mobile number';
-                                          }
-                                          if (value.length != 11) {
-                                            return 'shall be 11 numbers';
                                           }
                                           return null;
                                         },
